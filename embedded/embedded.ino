@@ -12,8 +12,6 @@ Adafruit_BME280 sensor;
 #define PASSWD "88888888"
 #define IP "http://192.168.43.251:3001/api/newreading"
 
-//StaticJsonDocument<4> jd;
-
 void setup() {
   Serial.begin(115200);
   Wire.begin(); //Aktivoi I2C väylän käyttön
@@ -25,18 +23,8 @@ void setup() {
 }
 
 void loop() {
-  StaticJsonBuffer<JSON_OBJECT_SIZE(4)> jbuffer;
-  String output = "";
-  JsonObject& data = jbuffer.createObject();
-
-  data["name"] = "YEET";
-  data["temperature"] = sensor.readTemperature();
-  data["humidity"] = sensor.readHumidity();
-  data["pressure"] = sensor.readPressure()/100.0F;
-  data.printTo(output);
-    
   printSensors();
-  dataToPOST(output);
+  dataToPOST(makeJSON());
   Serial.println("-------------------------");
   delay(5000);
 }
@@ -92,4 +80,17 @@ void dataToPOST(String output){
       Serial.println(httpcode);
     }
   }
+}
+
+String makeJSON(){
+  String tmp = "";
+  StaticJsonBuffer<JSON_OBJECT_SIZE(4)> jbuffer;
+  JsonObject& data = jbuffer.createObject();
+
+  data["name"] = "YEET";
+  data["temperature"] = sensor.readTemperature();
+  data["humidity"] = sensor.readHumidity();
+  data["pressure"] = sensor.readPressure()/100.0F;
+  data.printTo(tmp);
+  return tmp;
 }
