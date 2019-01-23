@@ -44,25 +44,6 @@ void printSensors(){
   Serial.println("m");
 }
 
-void checkWifiAndPOST(String output){
-  if (wifi.run() == WL_CONNECTED){
-    Serial.println("");
-    Serial.print("Wifi OK! IP: ");
-    Serial.println(WiFi.localIP());
-    HTTPClient http;
-    http.begin(IP);
-    http.addHeader("Content-Type", "application/json");
-    int httpcode = http.POST(output);
-    if (httpcode == HTTP_CODE_OK){
-      Serial.println("POST - OK");
-    }
-    else{
-      Serial.print("POST - Error: ");
-      Serial.println(httpcode);
-    }
-  }
-}
-
 void dataToPOST(String output){
   if (wifi.run() == WL_CONNECTED){
     Serial.println("");
