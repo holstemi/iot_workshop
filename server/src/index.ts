@@ -2,6 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { networkInterfaces } from 'os';
 
+import {insertReading} from './dbUtils';
+
 const app = express();
 app.use(bodyParser.json());
 
@@ -14,8 +16,12 @@ app.post('/api/new_reading', (req:Request, res:Response) => {
     catch(error){
         return res.status(400).send(error);
     }
+
+    insertReading(reading){
+
+    }
     res.send(req.body);
-})
+});
 
 const assertReading = (NewReading | null =>{
     if(!reading){
@@ -35,9 +41,9 @@ const assertReading = (NewReading | null =>{
         throw 'Invalid or missing parameter "humid"'
     }
 
-})
+});
 
 const port = process.env.PORT ||3001;
 app.listen(port, () =>{
     console.log("Server listening on port 3001")
-})
+});
