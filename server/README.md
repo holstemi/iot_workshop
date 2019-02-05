@@ -14,6 +14,10 @@ Hoitaa backendiä
   }
 ´´´
 4. Tee src kansio ja lisää index.ts tiedostoon testikoodia
+5. Varmista että node_modules kansio ei päädy GitHubiin (turhaa binääridataa) (`echo "node_modules/" > .gitignore`)
+
+ yarn add express body-parse @types/express @types/body-parser
+
 
 ## Käyttö
 1. Aja ohjelma (`yarn start`)
