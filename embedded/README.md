@@ -3,17 +3,18 @@
 
 ## Perustoimintaperiaate
 ```c++
+//Suoritetaan vain käynnistäessä
 void setup() {
   //Asetetaan mikrokontrollerin käskynopeus
-  //Aktivoidaan I2C väylän käyttön
+  //Aktivoidaan I2C väylä käyttön
   //Tarkistetaan onko BMP280 -senori läsnä
   //Alustetaan wifi-siru ja annetaan APn tiedot
 }
 
+//Suoritetaan jatkuvasti
 void loop() {
   printSensors();
   dataToPOST(makeJSON());
-  Serial.println("-------------------------");
-  delay(5000);
+  //Wait 5 seconds
 }
 ```

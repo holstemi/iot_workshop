@@ -1,0 +1,13 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.3.1"
+  },
+  "scripts":{
+    "build":"tsc -p tsconfig.json",
+    "start":"yarn build && node .build"
+  }
+}

@@ -14,7 +14,7 @@ Adafruit_BME280 sensor;
 
 void setup() {
   Serial.begin(115200);
-  Wire.begin(); //Aktivoi I2C väylän käyttön
+  Wire.begin(); //Aktivoi I2C väylän käyttöön
   if(!sensor.begin(I2C_ADDR)){
     Serial.println("Error: Sensor not found!");
   }
