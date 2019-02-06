@@ -8,6 +8,12 @@ Sisältää "Arduinolla" (ESP8266/BMP280) suoritettavan koodin, joka lähettää
 ### Fake_sensor -kansio
 Sisältää palvelimelle annettavan mock -datan luontiscriptin (kopioitu suoraan digit_koodit reposta)
 
+### Server -kansio
+Sisältää backendin, joka on tehty Express & SQLite tekniikoilla
+
+###Client -kansio
+Sisältää frontin, joka on tehty Reactilla (create-react-app)
+
 ´´´
 Luontijärjestys:
 1. Embedded
