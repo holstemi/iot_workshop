@@ -11,13 +11,13 @@ Sisältää palvelimelle annettavan mock -datan luontiscriptin (kopioitu suoraan
 ### Server -kansio
 Sisältää backendin, joka on tehty Express & SQLite tekniikoilla
 
-###Client -kansio
+### Client -kansio
 Sisältää frontin, joka on tehty Reactilla (create-react-app)
 
-´´´
+```
 Luontijärjestys:
 1. Embedded
 2. Fake_sensor
 3. Backend
 4. Front
-´´´
+```
